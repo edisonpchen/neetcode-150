@@ -36,3 +36,23 @@ def twoSum(self, nums, target):
             return [seen[target - num], i]
         seen[num] = i
     return []
+
+
+# 4: https://leetcode.com/problems/group-anagrams/
+def groupAnagrams(self, strs):
+    """
+    :type strs: List[str]
+    :rtype: List[List[str]]
+    """
+    map = dict()
+    for i in range(len(strs)):
+        temp = list(strs[i])
+        print(temp)
+        temp.sort()
+        temp2 = "".join(temp)
+        if map.get(temp2) is None:
+            map[temp2] = [strs[i]]
+        else:
+            map[temp2].insert(0, strs[i])
+
+    return map.values()
