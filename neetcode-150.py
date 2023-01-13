@@ -56,3 +56,16 @@ def groupAnagrams(self, strs):
             map[temp2].insert(0, strs[i])
 
     return map.values()
+
+    
+# 5: https://leetcode.com/problems/valid-palindrome/
+def isPalindrome(self, s: str) -> bool:
+    s = "".join(c for c in s if c.isalnum()).lower()
+    left = 0
+    right = len(s) - 1
+    while left < right:
+        if s[left] != s[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
