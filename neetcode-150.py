@@ -69,3 +69,25 @@ def isPalindrome(self, s: str) -> bool:
         left += 1
         right -= 1
     return True
+
+
+# https://leetcode.com/problems/container-with-most-water/
+def maxArea(self, height) -> int:
+    left = 0
+    right = len(height) - 1
+    currMax = 0
+    
+    while right > left:
+        r = height[right]
+        l = height[left]
+        
+        if min(r, l) * (right - left) > currMax:
+            currMax = min(r, l) * (right - left)
+        
+        if l < r:
+            left += 1
+        else:
+            right -= 1
+
+    return currMax
+    
